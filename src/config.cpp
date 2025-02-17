@@ -898,7 +898,7 @@ FilesystemConfiguration::matches_custom_key_command(MirKeyboardAction action, in
 
 bool FilesystemConfiguration::matches_key_command(MirKeyboardAction action, int scan_code, unsigned int modifiers, std::function<bool(DefaultKeyCommand)> const& f) const
 {
-    for (int i = 0; i < static_cast<int>(DefaultKeyCommand::MAX); i++)
+    for (int i = static_cast<int>(DefaultKeyCommand::MAX) - 1; i >= 0; i--)
     {
         for (auto command : options.key_commands[i])
         {
